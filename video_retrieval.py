@@ -40,8 +40,6 @@ for idx, data in enumerate(dataset):
         results.append({
             "video_path": video_path,
             "text": text,
-            "vision_emb": vision_emb,
-            "text_emb": text_emb,
             "cosine_similarity": cos_sim
         })
 
@@ -50,7 +48,8 @@ for idx, data in enumerate(dataset):
     except Exception as e:
         print(f"[{idx}] Failed: {os.path.basename(video_path)} - Error: {e}")
 
-output_path = "/home/junseoklee/CaReBench/embedding_results.json"
+output_path = "/home/junseoklee/CaReBench/cos_results.json"
+
 with open(output_path, "w") as f:
     json.dump(results, f, indent=2)
 
